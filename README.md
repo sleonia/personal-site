@@ -19,6 +19,7 @@ personal-site-v2/
 ??? README.md           # This file
 ??? node_modules/       # Dependencies (if installed)
 ```
+
 ## Resources
 
 1. Generating avatar - https://www.easemate.ai/webapp/chat?from=ai-photo-generator
@@ -52,11 +53,13 @@ This will start a local server at `http://localhost:3000` and open it in your br
 This project includes an automated upload script for Yandex Cloud Storage (S3-compatible):
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Configure credentials:**
+
    ```bash
    # Copy the example environment file
    cp .env.example .env
@@ -75,12 +78,14 @@ This project includes an automated upload script for Yandex Cloud Storage (S3-co
    ```
 
 The script will:
+
 - Upload all static files (`index.html`, `css/`, `js/`, `images/`)
 - Set appropriate MIME types and cache headers
 - Provide progress feedback
 - Show the final URL when complete
 
 **Environment Variables:**
+
 - `YC_BUCKET` - Your bucket name (required)
 - `YC_ACCESS_KEY_ID` - Access key ID (required)
 - `YC_SECRET_ACCESS_KEY` - Secret access key (required)
@@ -88,4 +93,3 @@ The script will:
 - `YC_REGION` - Region (optional, defaults to `ru-central1`)
 
 You can also use AWS variable names: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`
-
