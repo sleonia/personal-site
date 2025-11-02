@@ -2,30 +2,12 @@
 
 A pixel art-inspired personal portfolio site built with vanilla HTML, CSS, and JavaScript.
 
-## Project Structure
-
-Following static site best practices:
-
-```
-personal-site-v2/
-??? index.html          # Entry point - main HTML file
-??? css/                # Stylesheets
-?   ??? styles.css      # All CSS styles
-??? js/                 # JavaScript files
-?   ??? script.js       # Theme management and interactivity
-??? images/             # Image assets
-?   ??? *.jpg, *.png, *.svg
-??? package.json        # Dev dependencies (optional)
-??? README.md           # This file
-??? node_modules/       # Dependencies (if installed)
-```
-
 ## Resources
 
-1. Generating avatar - https://www.easemate.ai/webapp/chat?from=ai-photo-generator
+1. Generating avatar - https://www.easemate.ai/webapp/chat
 2. App design - https://v0.app
 3. Compress image and convert it - https://squoosh.app
-4. Remove backgound - https://removal.ai/upload
+4. Remove background - https://removal.ai/upload
 
 ## Getting Started
 

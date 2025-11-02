@@ -162,16 +162,17 @@ const __dirname = dirname(__filename);
     const rootDir = join(__dirname, config.rootPath);
     const filesToUpload = ["index.html", "css/", "js/", "images/"];
 
-    console.log("?? Starting upload to Yandex Cloud Storage...\n");
-    console.log(`?? Bucket: ${config.bucket}`);
-    console.log(`?? Endpoint: ${config.endpoint}`);
-    console.log(`?? Root directory: ${rootDir}\n`);
+    console.log("Starting upload to Yandex Cloud Storage...\n");
+    console.log(`Bucket: ${config.bucket}`);
+    console.log(`Endpoint: ${config.endpoint}`);
+    console.log(`Root directory: ${rootDir}\n`);
 
     const allFiles = [];
 
     // Collect all files to upload
     filesToUpload.forEach((item) => {
       const itemPath = join(rootDir, item);
+      console.log(itemPath);
       try {
         if (statSync(itemPath).isFile()) {
           allFiles.push(itemPath);

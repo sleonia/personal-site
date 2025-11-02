@@ -402,10 +402,11 @@ picture img {
   color: var(--primary);
   margin: 0;
   transition: color 0.2s;
-}
-
-.project-card:hover .project-title {
-  color: var(--accent);
+  &:hover {
+    text-shadow:
+      0 0 20px color-mix(in oklab, var(--primary) 50%, transparent),
+      0 0 40px color-mix(in oklab, var(--primary) 40%, transparent);
+  }
 }
 
 .project-description {
@@ -437,7 +438,10 @@ picture img {
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  transition: transform 120ms ease, text-shadow 120ms ease, color 120ms ease;
+  transition:
+    transform 120ms ease,
+    text-shadow 120ms ease,
+    color 120ms ease;
   display: inline-block;
   -webkit-tap-highlight-color: transparent;
   text-transform: uppercase;
