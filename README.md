@@ -8,6 +8,7 @@ A pixel art-inspired personal portfolio site built with vanilla HTML, CSS, and J
 2. App design - https://v0.app
 3. Compress image and convert it - https://squoosh.app
 4. Remove background - https://removal.ai/upload
+5. Creating a favicon - https://favicon.io
 
 ## Getting Started
 

@@ -263,7 +263,8 @@ picture img {
 }
 
 .section-about {
-  background-color: color-mix(in oklch, var(--secondary) 10%, transparent);
+  /* background-color: color-mix(in oklch, var(--secondary) 10%, transparent); */
+  background-color: var(--card);
   border-color: var(--secondary);
 }
 
@@ -302,6 +303,10 @@ picture img {
   color: color-mix(in oklch, var(--foreground) 90%, transparent);
   font-size: 0.875rem;
   line-height: 1.6;
+
+  & p {
+    margin: 0;
+  }
 }
 
 @media (min-width: 768px) {
@@ -365,10 +370,7 @@ picture img {
 .project-card {
   padding: 1.5rem;
   background-color: var(--card);
-  border: 3px solid var(--muted);
-  image-rendering: pixelated;
-  cursor: pointer;
-  transition: all 0.2s;
+  border: 2px solid var(--muted);
 
   .project-header a {
     text-decoration: underline;
@@ -401,7 +403,10 @@ picture img {
   font-weight: bold;
   color: var(--primary);
   margin: 0;
-  transition: color 0.2s;
+  transition:
+    text-shadow 120ms ease,
+    color 120ms ease;
+
   &:hover {
     text-shadow:
       0 0 20px color-mix(in oklab, var(--primary) 50%, transparent),
@@ -415,7 +420,6 @@ picture img {
   margin: 0;
 }
 
-/* ===== Compact pixel contact links (add to styles.css) ===== */
 .contact-buttons {
   display: flex;
   gap: 0.75rem;
@@ -484,6 +488,7 @@ picture img {
   }
 
   & img {
+    user-select: none;
     height: 2rem;
     margin-inline: 0 0.25rem;
   }
