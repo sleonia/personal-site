@@ -21,7 +21,7 @@ const __dirname = dirname(__filename);
     const dotenv = await import("dotenv");
     if (existsSync(".env")) {
       dotenv.config();
-      console.log("?? Loaded .env file\n");
+      console.log("Loaded .env file\n");
     }
   } catch (e) {
     // dotenv not installed, that's okay - use environment variables directly
@@ -41,14 +41,14 @@ const __dirname = dirname(__filename);
   // Validate configuration
   if (!config.bucket) {
     console.error(
-      "? Error: YC_BUCKET or S3_BUCKET environment variable is required",
+      "Error: YC_BUCKET or S3_BUCKET environment variable is required",
     );
     process.exit(1);
   }
 
   if (!config.accessKeyId || !config.secretAccessKey) {
     console.error(
-      "? Error: YC_ACCESS_KEY_ID and YC_SECRET_ACCESS_KEY (or AWS equivalents) are required",
+      "Error: YC_ACCESS_KEY_ID and YC_SECRET_ACCESS_KEY (or AWS equivalents) are required",
     );
     process.exit(1);
   }
@@ -74,17 +74,16 @@ const __dirname = dirname(__filename);
       html: "text/html",
       css: "text/css",
       js: "application/javascript",
+      mjs: "application/javascript",
       json: "application/json",
       jpg: "image/jpeg",
       jpeg: "image/jpeg",
       png: "image/png",
-      gif: "image/gif",
-      svg: "image/svg+xml",
+      avif: "image/avif",
       webp: "image/webp",
       ico: "image/x-icon",
       txt: "text/plain",
       xml: "application/xml",
-      pdf: "application/pdf",
     };
     return mimeTypes[ext] || "application/octet-stream";
   }
@@ -126,7 +125,7 @@ const __dirname = dirname(__filename);
       await s3Client.send(command);
       return true;
     } catch (error) {
-      console.error(`? Failed to upload ${localPath}:`, error.message);
+      console.error(`Failed to upload ${localPath}:`, error.message);
       return false;
     }
   }
@@ -159,7 +158,7 @@ const __dirname = dirname(__filename);
    * Main upload function
    */
   async function uploadFiles() {
-    const rootDir = join(__dirname, config.rootPath);
+    const rootDir = join(__dirname, "..", config.rootPath);
     const filesToUpload = ["index.html", "css/", "js/", "images/"];
 
     console.log("Starting upload to Yandex Cloud Storage...\n");
@@ -172,7 +171,7 @@ const __dirname = dirname(__filename);
     // Collect all files to upload
     filesToUpload.forEach((item) => {
       const itemPath = join(rootDir, item);
-      console.log(itemPath);
+
       try {
         if (statSync(itemPath).isFile()) {
           allFiles.push(itemPath);
@@ -181,50 +180,45 @@ const __dirname = dirname(__filename);
           allFiles.push(...dirFiles);
         }
       } catch (error) {
-        console.warn(`??  Warning: ${item} not found, skipping...`);
+        console.warn(`Warning: ${item} not found, skipping...`);
       }
     });
 
     if (allFiles.length === 0) {
-      console.error("? No files found to upload");
+      console.error("No files found to upload");
       process.exit(1);
     }
 
-    console.log(`?? Found ${allFiles.length} file(s) to upload\n`);
+    console.log(`Found ${allFiles.length} file(s) to upload\n`);
 
     let successCount = 0;
     let failCount = 0;
 
-    // Upload each file
     for (const filePath of allFiles) {
       const relativePath = relative(rootDir, filePath);
       const contentType = getContentType(relativePath);
-
-      // Normalize path separators for S3 (use forward slashes)
       const s3Key = relativePath.replace(/\\/g, "/");
 
-      process.stdout.write(`?? Uploading: ${s3Key}... `);
+      process.stdout.write(`Uploading: ${s3Key}... `);
 
       const success = await uploadFile(filePath, s3Key, contentType);
 
       if (success) {
-        console.log("?");
         successCount++;
       } else {
-        console.log("?");
         failCount++;
       }
     }
 
     console.log("\n" + "=".repeat(50));
-    console.log(`? Successfully uploaded: ${successCount} file(s)`);
+    console.log(`Successfully uploaded: ${successCount} file(s)`);
     if (failCount > 0) {
-      console.log(`? Failed: ${failCount} file(s)`);
+      console.log(`Failed: ${failCount} file(s)`);
     }
     console.log("=".repeat(50));
 
     if (failCount === 0) {
-      console.log(`\n?? Upload complete! Your site is available at:`);
+      console.log(`\nUpload complete! Your site is available at:`);
       console.log(
         `   https://${config.bucket}.storage.yandexcloud.net/index.html`,
       );
@@ -240,6 +234,6 @@ const __dirname = dirname(__filename);
   // Run the upload
   await uploadFiles();
 })().catch((error) => {
-  console.error("? Fatal error:", error);
+  console.error("Fatal error:", error);
   process.exit(1);
 });
