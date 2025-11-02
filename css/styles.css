@@ -1,0 +1,641 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: "Digital Pixel";
+  src: url("../fonts/Digital_Pixel_V124/DigitalPixelV124-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Variables and Theme System */
+:root {
+  /* 80s cyberpunk theme with violet, magenta, and cyan */
+  --background: oklch(0.08 0.01 280);
+  --foreground: oklch(0.9 0.1 280);
+  --card: oklch(0.12 0.02 280);
+  --card-foreground: oklch(0.9 0.1 280);
+  --primary: oklch(0.7 0.3 280);
+  --primary-foreground: oklch(0.08 0.01 280);
+  --secondary: oklch(0.65 0.25 320);
+  --secondary-foreground: oklch(0.95 0.1 280);
+  --muted: oklch(0.2 0.05 280);
+  --muted-foreground: oklch(0.6 0.15 190);
+  --accent: oklch(0.7 0.25 190);
+  --accent-foreground: oklch(0.08 0.01 280);
+  --border: oklch(0.2 0.05 280);
+  --input: oklch(0.15 0.02 280);
+  --ring: oklch(0.7 0.3 280);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --radius: 0.625rem;
+
+  /* Typography */
+  --font-pixel: "Digital Pixel", "JetBrains Mono", "Space Mono", "Courier New", monospace;
+  --font-primary: "JetBrains Mono", "Space Mono", "Courier New", monospace;
+  --font-secondary: "Space Mono", "JetBrains Mono", "Courier New", monospace;
+
+  /* Cyberpunk theme */
+  --background: oklch(0.08 0.01 280);
+  --foreground: oklch(0.9 0.1 280);
+  --card: oklch(0.12 0.02 280);
+  --card-foreground: oklch(0.9 0.1 280);
+  --primary: oklch(0.7 0.3 280);
+  --primary-foreground: oklch(0.08 0.01 280);
+  --secondary: oklch(0.65 0.25 320);
+  --secondary-foreground: oklch(0.95 0.1 280);
+  --muted: oklch(0.2 0.05 280);
+  --muted-foreground: oklch(0.6 0.15 190);
+  --accent: oklch(0.7 0.25 190);
+  --accent-foreground: oklch(0.08 0.01 280);
+  --border: oklch(0.2 0.05 280);
+  --input: oklch(0.15 0.02 280);
+  --ring: oklch(0.7 0.3 280);
+}
+
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100dvh;
+}
+
+.container {
+  min-height: 100dvh;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+/* Scanlines Effect */
+.scanlines {
+  background: linear-gradient(
+    0deg,
+    transparent 24%,
+    rgba(200, 100, 255, 0.05) 25%,
+    rgba(200, 100, 255, 0.05) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgba(200, 100, 255, 0.05) 75%,
+    rgba(200, 100, 255, 0.05) 76%,
+    transparent 77%,
+    transparent
+  );
+  background-size: 100% 3px;
+}
+
+/* Typography */
+.pixel-font {
+  font-family: var(--font-pixel);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 10px rgba(200, 100, 255, 0.6);
+}
+
+.cyber-glow {
+  text-shadow: 0 0 8px rgba(200, 100, 255, 0.8), 0 0 16px rgba(255, 0, 150, 0.4);
+}
+
+/* Font weight utilities */
+.font-normal {
+  font-weight: 400;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+/* Alternative font family */
+.font-alt {
+  font-family: var(--font-secondary);
+}
+
+/* Decorative Shapes */
+.decorative-shape {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0.15;
+  font-size: 3rem;
+  z-index: 0;
+}
+
+@supports (top: random()) {
+  .shape-1 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+  .shape-2 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+  .shape-3 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+  .shape-4 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+  .shape-5 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+  .shape-6 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+  .shape-7 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+  .shape-8 {
+    top: random(5%, 90%);
+    left: random(5%, 50%);
+    font-size: random(1.5rem, 4.5rem);
+    opacity: random(0.08, 0.3);
+    transform: rotate(random(0deg, 360deg));
+    animation: pulse random(1.5s, 2.5s) ease-in-out infinite;
+  }
+}
+
+/* Fallback values for browsers without random() support */
+@supports not (top: random()) {
+  /* Universal selector for all shapes - fixed fallback values */
+  .shape {
+    top: 5rem;
+    right: 3rem;
+    font-size: 3rem;
+    opacity: 0.15;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Alternate positioning for variety in fallback */
+  .shape:nth-child(odd) {
+    top: 33.333%;
+    left: 3rem;
+  }
+
+  .shape:nth-child(even) {
+    bottom: 10rem;
+    right: 5rem;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Header */
+.header {
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-box {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--primary);
+  border: 3px solid var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-foreground);
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .site-title {
+    font-size: 4.375rem;
+  }
+}
+
+.site-subtitle {
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .site-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+.avatar-box {
+  width: 8rem;
+  height: 8rem;
+  border: 3px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pixel-object {
+  image-rendering: pixelated;
+  backface-visibility: hidden;
+}
+
+/* Picture element styles */
+picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main Content */
+.main {
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 4rem;
+  padding: 2rem;
+  border: 3px solid;
+  image-rendering: pixelated;
+}
+
+.section-about {
+  background-color: color-mix(in oklch, var(--secondary) 10%, transparent);
+  border-color: var(--secondary);
+}
+
+.section-stack {
+  background-color: var(--card);
+  border-color: var(--primary);
+}
+
+.section-contact {
+  background-color: color-mix(in oklch, var(--primary) 10%, transparent);
+  border-color: var(--primary);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-foreground);
+}
+
+.section-title-stack {
+  font-size: 1.875rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: color-mix(in oklch, var(--foreground) 90%, transparent);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .section-content {
+    font-size: 1rem;
+  }
+}
+
+/* Stack Grid */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .stack-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stack-item {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 2px solid;
+}
+
+.stack-item-primary {
+  background-color: color-mix(in oklch, var(--primary) 20%, transparent);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.stack-item-accent {
+  background-color: color-mix(in oklch, var(--accent) 20%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.stack-item-secondary {
+  background-color: color-mix(in oklch, var(--secondary) 20%, transparent);
+  border-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.stack-item-muted {
+  background-color: color-mix(in oklch, var(--muted) 20%, transparent);
+  border-color: var(--muted);
+  color: var(--muted-foreground);
+}
+
+/* Projects */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-card {
+  padding: 1.5rem;
+  background-color: var(--card);
+  border: 3px solid var(--muted);
+  image-rendering: pixelated;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--secondary);
+  background-color: color-mix(in oklch, var(--secondary) 10%, transparent);
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 2px solid var(--muted);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.project-card:hover .project-image {
+  border-color: var(--secondary);
+}
+
+.project-thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  image-rendering: auto;
+  transition: transform 0.2s;
+}
+
+.project-card:hover .project-thumbnail {
+  transform: scale(1.02);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.project-card:hover .project-title {
+  color: var(--accent);
+}
+
+.project-status {
+  font-size: 0.75rem;
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--muted);
+}
+
+.project-description {
+  color: color-mix(in oklch, var(--foreground) 80%, transparent);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Buttons */
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 16px;
+  text-align: center;
+  font-family: var(--font-pixel);
+  font-size: 24px;
+  color: white;
+  border: 5px solid white;
+  box-shadow: 4px 4px 0px #ffffff;
+  cursor: pointer;
+  transition: all 0.1s;
+  image-rendering: pixelated;
+  text-transform: none;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .btn {
+    font-size: 16px;
+    padding: 12px;
+    border: 4px solid white;
+    box-shadow: 3px 3px 0px #ffffff;
+  }
+
+  .btn:active {
+    box-shadow: 1px 1px 0px #ffffff;
+  }
+
+  .btn:hover {
+    box-shadow: 5px 5px 0px #ffffff;
+  }
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #ffffff;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border-color: white;
+  box-shadow: 4px 4px 0px #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: color-mix(in oklch, var(--primary) 90%, transparent);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #ffffff;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: white;
+  border-color: white;
+  box-shadow: 4px 4px 0px #ffffff;
+}
+
+.btn-accent:hover {
+  background-color: color-mix(in oklch, var(--accent) 90%, transparent);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+  border-color: white;
+  box-shadow: 4px 4px 0px #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: color-mix(in oklch, var(--secondary) 90%, transparent);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #ffffff;
+}
+
+/* Footer */
+.footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  border-top: 3px solid var(--muted);
+  padding-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-shapes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.footer-shape {
+  opacity: 0.3;
+}
+
+.footer-shape:nth-child(2) {
+  opacity: 0.25;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .avatar-box {
+    align-self: flex-end;
+  }
+}

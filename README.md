@@ -1,30 +1,91 @@
-# Pixel art personal site
+# Personal Site - Plain HTML/CSS/JS
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A pixel art-inspired personal portfolio site built with vanilla HTML, CSS, and JavaScript.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/sleonias-projects/v0-pixel-art-personal-site)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/rgebv7fd8DN)
+## Project Structure
 
-## Overview
+Following static site best practices:
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+```
+personal-site-v2/
+??? index.html          # Entry point - main HTML file
+??? css/                # Stylesheets
+?   ??? styles.css      # All CSS styles
+??? js/                 # JavaScript files
+?   ??? script.js       # Theme management and interactivity
+??? images/             # Image assets
+?   ??? *.jpg, *.png, *.svg
+??? package.json        # Dev dependencies (optional)
+??? README.md           # This file
+??? node_modules/       # Dependencies (if installed)
+```
+## Resources
 
-## Deployment
+1. Generating avatar - https://www.easemate.ai/webapp/chat?from=ai-photo-generator
+2. App design - https://v0.app
+3. Compress image and convert it - https://squoosh.app
+4. Remove backgound - https://removal.ai/upload
 
-Your project is live at:
+## Getting Started
 
-**[https://vercel.com/sleonias-projects/v0-pixel-art-personal-site](https://vercel.com/sleonias-projects/v0-pixel-art-personal-site)**
+### Installation
 
-## Build your app
+```bash
+# Install dependencies (optional - only needed for local dev server)
+npm install
+```
 
-Continue building your app on:
+### Development
 
-**[https://v0.app/chat/rgebv7fd8DN](https://v0.app/chat/rgebv7fd8DN)**
+Start a local development server:
 
-## How It Works
+```bash
+npm run dev
+# or
+pnpm dev
+```
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+This will start a local server at `http://localhost:3000` and open it in your browser.
+
+#### Deploy to Yandex Cloud Storage
+
+This project includes an automated upload script for Yandex Cloud Storage (S3-compatible):
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Configure credentials:**
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env
+
+   # Edit .env and add your credentials:
+   # YC_BUCKET=your-bucket-name
+   # YC_ACCESS_KEY_ID=your-access-key-id
+   # YC_SECRET_ACCESS_KEY=your-secret-access-key
+   ```
+
+3. **Run the upload script:**
+   ```bash
+   npm run upload
+   # or
+   node upload.mjs
+   ```
+
+The script will:
+- Upload all static files (`index.html`, `css/`, `js/`, `images/`)
+- Set appropriate MIME types and cache headers
+- Provide progress feedback
+- Show the final URL when complete
+
+**Environment Variables:**
+- `YC_BUCKET` - Your bucket name (required)
+- `YC_ACCESS_KEY_ID` - Access key ID (required)
+- `YC_SECRET_ACCESS_KEY` - Secret access key (required)
+- `YC_ENDPOINT` - Custom endpoint (optional, defaults to Yandex Cloud)
+- `YC_REGION` - Region (optional, defaults to `ru-central1`)
+
+You can also use AWS variable names: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`
+
