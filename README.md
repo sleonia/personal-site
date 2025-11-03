@@ -25,8 +25,6 @@ Start a local development server:
 
 ```bash
 npm run dev
-# or
-pnpm dev
 ```
 
 This will start a local server at `http://localhost:3000` and open it in your browser.
@@ -52,12 +50,15 @@ This project includes an automated upload script for Yandex Cloud Storage (S3-co
    # YC_ACCESS_KEY_ID=your-access-key-id
    # YC_SECRET_ACCESS_KEY=your-secret-access-key
    ```
+You can read more here about Yandex Cloud Storage:
+
+- https://yandex.cloud/ru/docs/iam/operations/sa/assign-role-for-sa
+- https://yandex.cloud/ru/docs/storage/tools/aws-sdk-js
+- https://yandex.cloud/ru/docs/storage/operations/objects/upload
 
 3. **Run the upload script:**
    ```bash
    npm run upload
-   # or
-   node upload.mjs
    ```
 
 The script will:
@@ -67,12 +68,3 @@ The script will:
 - Provide progress feedback
 - Show the final URL when complete
 
-**Environment Variables:**
-
-- `YC_BUCKET` - Your bucket name (required)
-- `YC_ACCESS_KEY_ID` - Access key ID (required)
-- `YC_SECRET_ACCESS_KEY` - Secret access key (required)
-- `YC_ENDPOINT` - Custom endpoint (optional, defaults to Yandex Cloud)
-- `YC_REGION` - Region (optional, defaults to `ru-central1`)
-
-You can also use AWS variable names: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`
