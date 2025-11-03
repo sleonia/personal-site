@@ -54,18 +54,22 @@ body {
 }
 
 .container {
+  width: min(75%, 960px);
   min-height: 100dvh;
   padding: 2rem;
   overflow: hidden;
   position: relative;
 
   display: grid;
+  place-self: center;
+  margin: auto;
   grid-template-columns: 1fr;
   row-gap: 2rem;
 }
 
 @media (max-width: 768px) {
   .container {
+    width: 100%;
     padding: 1rem;
     row-gap: 1rem;
   }
@@ -167,7 +171,7 @@ body {
   }
 
   .site-title {
-    font-size: 3rem;
+    font-size: xx-large;
     margin: 0;
   }
 
@@ -263,24 +267,15 @@ picture img {
 }
 
 .section-about {
-  /* background-color: color-mix(in oklch, var(--secondary) 10%, transparent); */
-  background-color: var(--card);
   border-color: var(--secondary);
 }
 
-.section-stack {
-  background-color: var(--card);
-  border-color: var(--primary);
-}
-
 .section-publicity {
-  background-color: color-mix(in oklch, var(--secondary) 10%, transparent);
   border-color: var(--primary);
 }
 
 .section-contact {
-  background-color: color-mix(in oklch, var(--primary) 10%, transparent);
-  border-color: var(--primary);
+  border-color: var(--warm-yellow);
 }
 
 .section-title {
@@ -288,12 +283,6 @@ picture img {
   font-weight: bold;
   margin-block-end: 1.5rem;
   color: var(--secondary-foreground);
-}
-
-.section-title-stack {
-  font-size: 1.875rem;
-  margin-block-end: 1rem;
-  color: var(--primary);
 }
 
 .section-content {
@@ -313,51 +302,6 @@ picture img {
   .section-content {
     font-size: 1rem;
   }
-}
-
-/* Stack Grid */
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .stack-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.stack-item {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border: 2px solid;
-}
-
-.stack-item-primary {
-  background-color: color-mix(in oklch, var(--primary) 20%, transparent);
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-.stack-item-accent {
-  background-color: color-mix(in oklch, var(--accent) 20%, transparent);
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.stack-item-secondary {
-  background-color: color-mix(in oklch, var(--secondary) 20%, transparent);
-  border-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
-
-.stack-item-muted {
-  background-color: color-mix(in oklch, var(--muted) 20%, transparent);
-  border-color: var(--muted);
-  color: var(--muted-foreground);
 }
 
 /* Projects */
