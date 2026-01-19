@@ -1,7 +1,19 @@
 {
-  "name": "sleonia.dev",
-  "short_name": "",
+  "name": "sleonia.tech",
+  "short_name": "sleonia",
   "theme_color": "#16091B",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ]
 }
