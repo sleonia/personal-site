@@ -29,6 +29,10 @@ npm run dev
 
 This will start a local server at `http://localhost:3000` and open it in your browser.
 
+### Metrika
+
+https://metrika.yandex.ru/overview?id=106338771
+
 #### Deploy to Yandex Cloud Storage
 
 This project includes an automated upload script for Yandex Cloud Storage (S3-compatible):
