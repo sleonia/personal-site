@@ -8,6 +8,7 @@
       content="Nikita Dontsov is a software developer who specializes in building web applications and exploring how technology can simplify everyday life"
     />
     <title>sleonia.tech</title>
+    <link rel="canonical" href="https://sleonia.tech/" />
 
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="sleonia.tech" />
@@ -37,6 +38,13 @@
     <meta name="twitter:url" content="https://sleonia.tech/" />
 
     <!-- Favicon and styles -->
+    <link
+      rel="preload"
+      href="fonts/Digital_Pixel_V124/DigitalPixelV124-Regular.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
     <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="icon"
@@ -51,6 +59,21 @@
       href="images/favicon-16x16.png"
     />
     <link rel="manifest" href="site.webmanifest" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nikita Dontsov",
+        "jobTitle": "Software Engineer",
+        "url": "https://sleonia.tech/",
+        "sameAs": [
+          "https://github.com/sleonia",
+          "https://www.linkedin.com/in/nikita-dontsov/",
+          "https://vas3k.club/user/sleonia/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link pixel-font" href="#main">Skip to content</a>
@@ -105,14 +128,25 @@
           </div>
           <div class="avatar-box">
             <picture>
-              <source srcset="images/avatar.avif" type="image/avif" />
-              <source srcset="images/avatar.webp" type="image/webp" />
+              <source
+                srcset="images/avatar.avif 1024w"
+                sizes="(max-width: 768px) 96px, 192px"
+                type="image/avif"
+              />
+              <source
+                srcset="images/avatar.webp 1024w"
+                sizes="(max-width: 768px) 96px, 192px"
+                type="image/webp"
+              />
               <img
                 src="images/avatar.webp"
+                srcset="images/avatar.webp 1024w"
+                sizes="(max-width: 768px) 96px, 192px"
                 alt="Portrait of Nikita Dontsov"
                 class="avatar pixel-object"
                 width="128"
                 height="128"
+                decoding="async"
               />
             </picture>
           </div>
@@ -284,7 +318,11 @@
       </main>
 
       <footer class="footer pixel-font">
-        <p>// Made with <img src="images/heart.png" alt="❤️" /> by sleonia</p>
+        <p>
+          // Made with
+          <img src="images/heart.png" alt="❤️" loading="lazy" />
+          by sleonia
+        </p>
       </footer>
     </div>
     <script type="module" src="js/main.mjs"></script>
