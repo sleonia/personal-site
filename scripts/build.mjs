@@ -71,6 +71,39 @@ async function runBuild() {
   await fsp.mkdir(buildDir, { recursive: true });
   console.log("🧹 Cleaned old build");
 
+  // Copy static root files
+  const rootFiles = ["robots.txt", "site.webmanifest"];
+  for (const file of rootFiles) {
+    const srcPath = path.join(srcDir, file);
+    if (fs.existsSync(srcPath)) {
+      await fsp.copyFile(srcPath, path.join(buildDir, file));
+      console.log(`📄 Copied ${file}`);
+    }
+  }
+
+  // Update sitemap lastmod to build date and write to build
+  const sitemapSrc = path.join(srcDir, "sitemap.xml");
+  if (!fs.existsSync(sitemapSrc)) {
+    throw new Error("Missing sitemap.xml at project root.");
+  }
+  const buildDate = new Date().toISOString().slice(0, 10);
+  const sitemapRaw = await fsp.readFile(sitemapSrc, "utf8");
+  let sitemapOut = sitemapRaw;
+  if (/<lastmod>.*?<\/lastmod>/s.test(sitemapRaw)) {
+    sitemapOut = sitemapRaw.replace(
+      /<lastmod>.*?<\/lastmod>/g,
+      `<lastmod>${buildDate}</lastmod>`,
+    );
+  } else {
+    sitemapOut = sitemapRaw.replace(
+      /<loc>(.*?)<\/loc>/g,
+      `<loc>$1</loc>\n    <lastmod>${buildDate}</lastmod>`,
+    );
+  }
+
+  await fsp.writeFile(path.join(buildDir, "sitemap.xml"), sitemapOut, "utf8");
+  console.log("🗺️  Wrote sitemap.xml with build lastmod");
+
   // Copy static assets (fonts + images) if they exist
   const fontsSrc = path.join(srcDir, "fonts");
   const imagesSrc = path.join(srcDir, "images");
