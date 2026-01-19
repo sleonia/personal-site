@@ -159,7 +159,16 @@ const __dirname = dirname(__filename);
    */
   async function uploadFiles() {
     const rootDir = join(__dirname, "..", config.rootPath);
-    const filesToUpload = ["index.html", "css/", "js/", "images/"];
+    const filesToUpload = [
+      "index.html",
+      "css/",
+      "js/",
+      "images/",
+      "fonts/",
+      "robots.txt",
+      "sitemap.xml",
+      "site.webmanifest",
+    ];
 
     console.log("Starting upload to Yandex Cloud Storage...\n");
     console.log(`Bucket: ${config.bucket}`);
