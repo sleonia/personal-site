@@ -50,7 +50,8 @@ This project includes an automated upload script for Yandex Cloud Storage (S3-co
    # YC_ACCESS_KEY_ID=your-access-key-id
    # YC_SECRET_ACCESS_KEY=your-secret-access-key
    ```
-You can read more here about Yandex Cloud Storage:
+
+   You can read more here about Yandex Cloud Storage:
 
 - https://yandex.cloud/ru/docs/iam/operations/sa/assign-role-for-sa
 - https://yandex.cloud/ru/docs/storage/tools/aws-sdk-js
@@ -67,4 +68,3 @@ The script will:
 - Set appropriate MIME types and cache headers
 - Provide progress feedback
 - Show the final URL when complete
-
