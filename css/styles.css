@@ -176,37 +176,32 @@ button:focus-visible {
 .header {
   position: relative;
   z-index: 10;
-
-  .header-content {
-    display: grid;
-    align-items: start;
-    gap: 1rem;
-    grid-template-columns: auto minmax(100px, 1fr);
-    justify-items: end;
-  }
-
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
+  display: grid;
+  align-items: start;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  justify-items: stretch;
 
   .header-text {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    min-width: 0;
   }
 
   .site-title {
-    font-size: xx-large;
+    font-size: clamp(1.6rem, 3.6vw, 2.6rem);
     margin: 0;
   }
 
   .site-title-link {
     text-decoration: none;
-    border-bottom: 2px solid currentColor;
     padding-bottom: 2px;
     color: var(--primary);
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     transition:
       transform 0.25s ease,
       text-shadow 0.25s ease;
@@ -233,58 +228,12 @@ button:focus-visible {
     }
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 0.5rem;
-    column-gap: 0.5rem;
-  }
-
-  .main-actions {
-    padding: 0 1rem;
-  }
-
-  .cta {
-    font-family: var(--font-pixel);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px 12px;
-    border: 3px solid currentColor;
-    background-color: var(--card);
-    transition:
-      transform 120ms ease,
-      box-shadow 120ms ease,
-      border-color 120ms ease,
-      color 120ms ease;
-  }
-
-  .cta-projects {
-    color: var(--secondary-foreground);
-    border-color: var(--secondary);
-    box-shadow: 0 0 14px color-mix(in oklab, var(--primary) 30%, transparent);
-  }
-
-  .cta-contact {
-    border: 3px solid;
-    border-color: var(--warm-yellow);
-    color: var(--secondary-foreground);
-    box-shadow: 0 0 14px
-      color-mix(in oklab, var(--warm-yellow) 30%, transparent);
-  }
-
-  .cta:hover {
-    transform: translateY(-1px);
-  }
-
   .avatar-box {
     width: 12rem;
     height: 8rem;
     border: 3px solid var(--accent);
     flex-shrink: 0;
+    justify-self: end;
   }
 
   .avatar {
@@ -292,6 +241,49 @@ button:focus-visible {
     height: 100%;
     object-fit: cover;
   }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.5rem;
+  column-gap: 0.5rem;
+}
+
+.cta {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 12px;
+  border: 3px solid currentColor;
+  background-color: var(--card);
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.cta-projects {
+  color: var(--secondary-foreground);
+  border-color: var(--secondary);
+  box-shadow: 0 0 14px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+.cta-contact {
+  border: 3px solid;
+  border-color: var(--warm-yellow);
+  color: var(--secondary-foreground);
+  box-shadow: 0 0 14px
+    color-mix(in oklab, var(--warm-yellow) 30%, transparent);
+}
+
+.cta:hover {
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
@@ -340,6 +332,7 @@ picture img {
 
 /* Sections */
 .section {
+  background-color: var(--card);
   padding: 1rem;
   border: 3px solid;
   image-rendering: pixelated;
