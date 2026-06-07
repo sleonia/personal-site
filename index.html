@@ -3,12 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#16091B" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
       name="description"
       content="Nikita Dontsov is a software developer who specializes in building web applications and exploring how technology can simplify everyday life"
     />
     <title>sleonia.tech</title>
     <link rel="canonical" href="https://sleonia.tech/" />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="https://sleonia.tech/index.md"
+      title="Page content as Markdown"
+    />
 
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="sleonia.tech" />
@@ -18,14 +27,17 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sleonia.tech/" />
-    <meta property="og:image" content="images/avatar.webp" />
+    <meta
+      property="og:image"
+      content="https://sleonia.tech/images/avatar.webp"
+    />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:alt" content="Portrait of Nikita Dontsov" />
     <meta property="og:site_name" content="sleonia.tech" />
-    <meta property="og:logo" content="images/favicon-32x32.png" />
-    <meta property="og:logo" content="images/logo-150.png" />
-    <meta property="og:logo" content="images/logo-512.png" />
 
     <!-- Twitter meta tags -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="sleonia.tech" />
     <meta
       name="twitter:description"
@@ -37,15 +49,21 @@
     />
     <meta name="twitter:url" content="https://sleonia.tech/" />
 
+    <!-- Resource hints for the analytics origin -->
+    <link rel="preconnect" href="https://mc.webvisor.org" crossorigin />
+    <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+
     <!-- Favicon and styles -->
     <link
       rel="preload"
-      href="fonts/Digital_Pixel_V124/DigitalPixelV124-Regular.otf"
+      href="fonts/Digital_Pixel_V124/DigitalPixelV124-Regular.woff2"
       as="font"
-      type="font/otf"
+      type="font/woff2"
       crossorigin
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
     <link
       rel="icon"
       type="image/png"
@@ -61,8 +79,8 @@
     <link
       rel="icon"
       type="image/png"
-      sizes="512x512"
-      href="images/logo-512.png"
+      sizes="1024x1024"
+      href="images/logo-1024.png"
     />
     <link
       rel="icon"
@@ -91,22 +109,58 @@
     <a class="skip-link pixel-font" href="#main">Skip to content</a>
     <div class="container">
       <div class="decorative-shape shape-1">
-        <img src="images/computer.png" alt="" />
+        <img
+          src="images/computer.png"
+          alt=""
+          width="100"
+          height="100"
+          decoding="async"
+        />
       </div>
       <div class="decorative-shape shape-2">
-        <img src="images/coffee.png" alt="" />
+        <img
+          src="images/coffee.png"
+          alt=""
+          width="100"
+          height="100"
+          decoding="async"
+        />
       </div>
       <div class="decorative-shape shape-3">
-        <img src="images/bulb.png" alt="" />
+        <img
+          src="images/bulb.png"
+          alt=""
+          width="100"
+          height="100"
+          decoding="async"
+        />
       </div>
       <div class="decorative-shape shape-4">
-        <img src="images/robot.png" alt="" />
+        <img
+          src="images/robot.png"
+          alt=""
+          width="100"
+          height="100"
+          decoding="async"
+        />
       </div>
       <div class="decorative-shape shape-5">
-        <img src="images/cargo.png" alt="" />
+        <img
+          src="images/cargo.png"
+          alt=""
+          width="100"
+          height="100"
+          decoding="async"
+        />
       </div>
       <div class="decorative-shape shape-6">
-        <img src="images/taxi.png" alt="" />
+        <img
+          src="images/taxi.png"
+          alt=""
+          width="100"
+          height="100"
+          decoding="async"
+        />
       </div>
 
       <header class="header">
@@ -158,9 +212,7 @@
           <a class="cta cta-projects pixel-font" href="#projects">
             View projects
           </a>
-          <a class="cta cta-contact pixel-font" href="#contact">
-            Contact me
-          </a>
+          <a class="cta cta-contact pixel-font" href="#contact"> Contact me </a>
         </div>
         <section id="about" class="section section-about">
           <h2 class="section-title pixel-font cyber-glow">[ ABOUT ]</h2>
@@ -195,7 +247,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    >Fleetroom • Yandex</a
+                    Fleetroom • Yandex</a
                   >
                 </h3>
               </div>
@@ -328,7 +380,13 @@
       <footer class="footer pixel-font">
         <p>
           // Made with
-          <img src="images/heart.png" alt="❤️" loading="lazy" />
+          <img
+            src="images/heart.png"
+            alt="love"
+            loading="lazy"
+            width="32"
+            height="32"
+          />
           by sleonia
         </p>
       </footer>
@@ -349,11 +407,11 @@
             return;
           }
         }
-        ((k = e.createElement(t)),
+        (k = e.createElement(t)),
           (a = e.getElementsByTagName(t)[0]),
           (k.async = 1),
           (k.src = r),
-          a.parentNode.insertBefore(k, a));
+          a.parentNode.insertBefore(k, a);
       })(
         window,
         document,

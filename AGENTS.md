@@ -12,9 +12,10 @@
 ## Build, Test, and Development Commands
 
 - `npm run dev`: serve the site locally at `http://localhost:3000` with auto-open.
-- `npm run build`: generate a minified production build in `build/`.
+- `npm run build`: regenerate the subset font, then generate a minified production build in `build/`.
+- `npm run build:font`: subset the display font to a WOFF2 (run automatically by `npm run build`).
 - `npm run production`: serve the `build/` folder locally.
-- `npm run upload`: deploy `build/` to Yandex Cloud Storage (requires `.env`).
+- `npm run upload`: deploy `build/` to Yandex Cloud Storage (requires `.env`). Uploads from `build/` by default; set `UPLOAD_ROOT` to override.
 - `npm run format`: format project files with Prettier.
 
 ## Coding Style & Naming Conventions
