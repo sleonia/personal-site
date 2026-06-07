@@ -6,7 +6,7 @@ Nikita Dontsov is a software developer specializing in web applications and tool
 
 ## Profile
 
-- [Homepage](https://sleonia.tech/): about, projects, talks, and contact
+- [Homepage](https://sleonia.tech/): about, work, side projects, talks, and contact
 - [Page content as Markdown](https://sleonia.tech/index.md): the full page text in plain Markdown
 
 ## Elsewhere
