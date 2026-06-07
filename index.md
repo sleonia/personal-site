@@ -19,10 +19,15 @@ I've worked in big tech, creating tools for data analytics and contributing to a
 
 Outside work, I organize tech events and share what I learn — from small IT breakfasts to meetups with hundreds of guests. I've also taught at Yandex Summer Schools and spoken at public talks.
 
-## Projects
+## Work
 
 - [Fleetroom • Yandex](https://fleet.yandex.com) — ride-hailing platform for fleets
 - [Garage • Yandex](https://garage.yandex.ru/) — car rentals from fleets directly to drivers
+
+## Side Projects
+
+- [Hearthstone Sounds for AI Agents](https://github.com/sleonia/ai-harness-hs-sounds) — a notification soundpack that plays memorable sounds from Hearthstone's golden era whenever an AI agent (Claude Code and friends) needs my attention. A Claude Code plugin; macOS only.
+- claw — my personal parser/summarizer: a Telegram bot that ingests RSS, GitHub, and Telegram sources into a shared database and turns them into daily and weekly digests.
 
 ## Talks & Articles
 

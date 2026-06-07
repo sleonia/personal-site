@@ -346,6 +346,10 @@ picture img {
   border-color: var(--secondary);
 }
 
+.section-side-projects {
+  border-color: var(--accent);
+}
+
 .section-publicity {
   border-color: var(--primary);
 }
