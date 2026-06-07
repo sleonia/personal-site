@@ -35,7 +35,9 @@ const __dirname = dirname(__filename);
     accessKeyId: process.env.YC_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey:
       process.env.YC_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY,
-    rootPath: process.env.UPLOAD_ROOT || ".",
+    // Deploy the built output by default — uploading the repo root would ship
+    // unminified source plus the large pre-subset .otf. Override with UPLOAD_ROOT.
+    rootPath: process.env.UPLOAD_ROOT || "build",
   };
 
   // Validate configuration
@@ -81,11 +83,27 @@ const __dirname = dirname(__filename);
       png: "image/png",
       avif: "image/avif",
       webp: "image/webp",
+      svg: "image/svg+xml",
       ico: "image/x-icon",
-      txt: "text/plain",
+      txt: "text/plain; charset=utf-8",
       xml: "application/xml",
+      md: "text/markdown; charset=utf-8",
+      webmanifest: "application/manifest+json",
+      woff2: "font/woff2",
+      woff: "font/woff",
+      otf: "font/otf",
+      ttf: "font/ttf",
     };
-    return mimeTypes[ext] || "application/octet-stream";
+    const type = mimeTypes[ext];
+    if (!type) {
+      // An unmapped type is served as a download (octet-stream) and only gets a
+      // 1h cache — surface it so a new file type isn't silently mis-served.
+      console.warn(
+        `Warning: no content-type for "${filename}" (ext "${ext}") — using application/octet-stream`,
+      );
+      return "application/octet-stream";
+    }
+    return type;
   }
 
   /**
@@ -95,6 +113,8 @@ const __dirname = dirname(__filename);
     const files = readdirSync(dirPath);
 
     files.forEach((file) => {
+      // Never publish OS metadata junk to the bucket.
+      if (file === ".DS_Store" || file === "Thumbs.db") return;
       const filePath = join(dirPath, file);
       if (statSync(filePath).isDirectory()) {
         arrayOfFiles = getAllFiles(filePath, arrayOfFiles);
@@ -136,18 +156,25 @@ const __dirname = dirname(__filename);
   function getCacheControl(filePath) {
     const ext = filePath.split(".").pop().toLowerCase();
 
-    // HTML should not be cached aggressively
+    // HTML must always revalidate, but must NOT be no-store: no-store
+    // disqualifies the document from the back/forward cache (bfcache).
+    // (no-cache means "revalidate before reuse", not "don't store".)
     if (ext === "html") {
-      return "no-cache, no-store, must-revalidate";
+      return "no-cache, must-revalidate";
     }
 
-    // CSS and JS can be cached
-    if (ext === "css" || ext === "js") {
+    // Code and fonts can be cached for a long time.
+    // NOTE: these filenames (and the images below) are not fingerprinted, so a
+    // redeploy of an unchanged name won't bust the cache for up to a year.
+    // Fingerprint (e.g. styles.[hash].css) if/when these change often.
+    if (["css", "js", "mjs", "woff2", "woff", "otf", "ttf"].includes(ext)) {
       return "public, max-age=31536000, immutable";
     }
 
-    // Images can be cached for a long time
-    if (["jpg", "jpeg", "png", "gif", "svg", "webp", "ico"].includes(ext)) {
+    // Images can be cached for a long time (same fingerprinting caveat as above).
+    if (
+      ["jpg", "jpeg", "png", "gif", "svg", "webp", "avif", "ico"].includes(ext)
+    ) {
       return "public, max-age=31536000, immutable";
     }
 
@@ -159,8 +186,16 @@ const __dirname = dirname(__filename);
    */
   async function uploadFiles() {
     const rootDir = join(__dirname, "..", config.rootPath);
+    if (!existsSync(rootDir)) {
+      console.error(
+        `Error: upload root "${config.rootPath}" not found at ${rootDir}.\n` +
+          `Run "npm run build" first, or set UPLOAD_ROOT to the directory to deploy.`,
+      );
+      process.exit(1);
+    }
     const filesToUpload = [
       "index.html",
+      "index.md",
       "css/",
       "js/",
       "images/",
@@ -168,6 +203,9 @@ const __dirname = dirname(__filename);
       "robots.txt",
       "sitemap.xml",
       "site.webmanifest",
+      "llms.txt",
+      "favicon.ico",
+      ".well-known/",
     ];
 
     console.log("Starting upload to Yandex Cloud Storage...\n");
@@ -177,19 +215,29 @@ const __dirname = dirname(__filename);
 
     const allFiles = [];
 
-    // Collect all files to upload
+    // Collect all files to upload. Everything listed is deploy-critical, so a
+    // missing entry must fail the deploy — not warn-and-continue, which would
+    // ship a site with 404ing assets and still print "Upload complete!".
     filesToUpload.forEach((item) => {
       const itemPath = join(rootDir, item);
 
+      let stat;
       try {
-        if (statSync(itemPath).isFile()) {
-          allFiles.push(itemPath);
-        } else if (statSync(itemPath).isDirectory()) {
-          const dirFiles = getAllFiles(itemPath);
-          allFiles.push(...dirFiles);
-        }
+        stat = statSync(itemPath);
       } catch (error) {
-        console.warn(`Warning: ${item} not found, skipping...`);
+        if (error.code === "ENOENT") {
+          console.error(
+            `Error: required path not found: ${item} (${itemPath})`,
+          );
+          process.exit(1);
+        }
+        throw error; // EACCES / ENOTDIR / etc. should surface, not look "missing"
+      }
+
+      if (stat.isFile()) {
+        allFiles.push(itemPath);
+      } else if (stat.isDirectory()) {
+        allFiles.push(...getAllFiles(itemPath));
       }
     });
 

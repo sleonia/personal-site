@@ -1,14 +1,29 @@
 {
   "name": "sleonia.tech",
   "short_name": "sleonia",
+  "start_url": "/",
+  "scope": "/",
   "theme_color": "#16091B",
-  "background_color": "#ffffff",
+  "background_color": "#16091B",
   "display": "standalone",
   "icons": [
     {
-      "src": "images/logo-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "images/logo-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "images/logo-150.png",

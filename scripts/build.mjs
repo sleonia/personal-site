@@ -8,14 +8,17 @@ import os from "node:os";
 const srcDir = process.cwd();
 const buildDir = path.join(srcDir, "build");
 
-async function copyDir(src, dest) {
+async function copyDir(src, dest, skip = () => false) {
   await fsp.mkdir(dest, { recursive: true });
   const entries = await fsp.readdir(src, { withFileTypes: true });
   for (const entry of entries) {
+    // Never ship OS metadata junk.
+    if (entry.name === ".DS_Store" || entry.name === "Thumbs.db") continue;
+    if (!entry.isDirectory() && skip(entry.name)) continue;
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
     if (entry.isDirectory()) {
-      await copyDir(srcPath, destPath);
+      await copyDir(srcPath, destPath, skip);
     } else {
       await fsp.copyFile(srcPath, destPath);
     }
@@ -26,6 +29,16 @@ async function removeDir(dir) {
   if (fs.existsSync(dir)) {
     await fsp.rm(dir, { recursive: true, force: true });
   }
+}
+
+function listFilesSync(dir) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...listFilesSync(p));
+    else out.push(p);
+  }
+  return out;
 }
 
 /**
@@ -71,14 +84,23 @@ async function runBuild() {
   await fsp.mkdir(buildDir, { recursive: true });
   console.log("🧹 Cleaned old build");
 
-  // Copy static root files
-  const rootFiles = ["robots.txt", "site.webmanifest"];
+  // Copy static root files. Each is referenced by index.html or required by the
+  // deploy, so a missing one is a build error — not something to skip silently
+  // (which would 404 in production with a green build).
+  const rootFiles = [
+    "robots.txt",
+    "site.webmanifest",
+    "llms.txt",
+    "index.md",
+    "favicon.ico",
+  ];
   for (const file of rootFiles) {
     const srcPath = path.join(srcDir, file);
-    if (fs.existsSync(srcPath)) {
-      await fsp.copyFile(srcPath, path.join(buildDir, file));
-      console.log(`📄 Copied ${file}`);
+    if (!fs.existsSync(srcPath)) {
+      throw new Error(`Missing required root file: ${file}`);
     }
+    await fsp.copyFile(srcPath, path.join(buildDir, file));
+    console.log(`📄 Copied ${file}`);
   }
 
   // Update sitemap lastmod to build date and write to build
@@ -108,12 +130,33 @@ async function runBuild() {
   const fontsSrc = path.join(srcDir, "fonts");
   const imagesSrc = path.join(srcDir, "images");
   if (fs.existsSync(fontsSrc)) {
-    await copyDir(fontsSrc, path.join(buildDir, "fonts"));
-    console.log("📦 Copied fonts");
+    // Ship the subset .woff2 (plus the font's license files); the large source
+    // .otf is the input to `npm run build:font` and is excluded from the deploy.
+    await copyDir(fontsSrc, path.join(buildDir, "fonts"), (name) =>
+      name.endsWith(".otf"),
+    );
+    // Guard against shipping an empty fonts dir (e.g. build:font never ran, so
+    // only the now-excluded .otf existed) and logging it as success.
+    const hasWoff2 = listFilesSync(path.join(buildDir, "fonts")).some((f) =>
+      f.endsWith(".woff2"),
+    );
+    if (!hasWoff2) {
+      throw new Error(
+        "No .woff2 in build/fonts — run `npm run build:font` to generate the subset font.",
+      );
+    }
+    console.log("📦 Copied fonts (source .otf excluded)");
   }
   if (fs.existsSync(imagesSrc)) {
     await copyDir(imagesSrc, path.join(buildDir, "images"));
     console.log("📦 Copied images");
+  }
+
+  // Copy /.well-known (security.txt, etc.) verbatim
+  const wellKnownSrc = path.join(srcDir, ".well-known");
+  if (fs.existsSync(wellKnownSrc)) {
+    await copyDir(wellKnownSrc, path.join(buildDir, ".well-known"));
+    console.log("📦 Copied .well-known");
   }
 
   // Ensure css/js folders exist in build
