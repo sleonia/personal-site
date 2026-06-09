@@ -93,6 +93,9 @@ async function runBuild() {
     "llms.txt",
     "index.md",
     "favicon.ico",
+    // Google Search Console ownership token — must stay served verbatim or
+    // verification is revoked. Copied as-is (not minified).
+    "google7888559aa0d55380.html",
   ];
   for (const file of rootFiles) {
     const srcPath = path.join(srcDir, file);

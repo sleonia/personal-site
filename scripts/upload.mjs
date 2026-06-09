@@ -205,6 +205,9 @@ const __dirname = dirname(__filename);
       "site.webmanifest",
       "llms.txt",
       "favicon.ico",
+      // Google Search Console ownership token — keep deploying it; deleting it
+      // revokes verification.
+      "google7888559aa0d55380.html",
       ".well-known/",
     ];
 
