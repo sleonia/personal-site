@@ -96,6 +96,8 @@ async function runBuild() {
     // Google Search Console ownership token — must stay served verbatim or
     // verification is revoked. Copied as-is (not minified).
     "google7888559aa0d55380.html",
+    // Bing ownership token
+    "BingSiteAuth.xml",
   ];
   for (const file of rootFiles) {
     const srcPath = path.join(srcDir, file);
