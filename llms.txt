@@ -1,6 +1,6 @@
 # sleonia.tech — Nikita Dontsov
 
-> Software engineer (front-end focus), dev-events organizer, and AI enthusiast building ride-hailing fleet platforms.
+> Software engineer (front-end focus), dev-events organizer, and AI enthusiast; fullstack on Yandex Business Travel, previously B2B ride-hailing for fleets.
 
 Nikita Dontsov is a software developer specializing in web applications and tooling that simplifies everyday life. This is his personal site — a single page covering his background, projects, talks, and contact details.
 
