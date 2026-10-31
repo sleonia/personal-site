@@ -208,6 +208,9 @@ const __dirname = dirname(__filename);
       // Google Search Console ownership token — keep deploying it; deleting it
       // revokes verification.
       "google7888559aa0d55380.html",
+      // Bing Webmaster Tools ownership token — same deal, deleting it revokes
+      // verification.
+      "BingSiteAuth.xml",
       ".well-known/",
     ];
 
