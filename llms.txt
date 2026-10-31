@@ -1,4 +1,4 @@
-# sleonia.tech — Nikita Dontsov
+# sleonia.com — Nikita Dontsov
 
 > Software engineer, dev-events organizer, and AI enthusiast; building business travel at Yandex, previously ride-hailing for fleets.
 
@@ -6,8 +6,8 @@ Nikita Dontsov is a software developer specializing in web applications and tool
 
 ## Profile
 
-- [Homepage](https://sleonia.tech/): about, work, side projects, talks, and contact
-- [Page content as Markdown](https://sleonia.tech/index.md): the full page text in plain Markdown
+- [Homepage](https://sleonia.com/): about, work, side projects, talks, and contact
+- [Page content as Markdown](https://sleonia.com/index.md): the full page text in plain Markdown
 
 ## Elsewhere
 
