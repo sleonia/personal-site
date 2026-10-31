@@ -21,7 +21,7 @@ Outside work, I organize tech events and share what I learn — from small IT br
 
 ## Work
 
-- [Business Travel • Yandex](https://business.taxi.yandex.ru/) — business travel for companies
+- [Business Travel • Yandex](https://business.go.yandex/) — business travel for companies
 - [Fleetroom • Yandex](https://fleet.yandex.com) — ride-hailing platform for fleets
 - [Garage • Yandex](https://garage.yandex.ru/) — car rentals from fleets directly to drivers
 
