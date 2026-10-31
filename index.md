@@ -15,13 +15,13 @@ license: All rights reserved
 
 Hi, I'm Nikita, a software developer with a front-end focus and a curiosity for modern tech and personal efficiency.
 
-I've worked in big tech, creating tools for data analytics and contributing to a design system used across a dozen teams. Now I'm on Yandex Business Travel — flights, trains, and hotels for companies — working fullstack across React and Go. Before that I built B2B ride-hailing products for fleets in 30+ countries.
+I've worked in big tech, creating tools for data analytics and contributing to a design system used across a dozen teams. Now I'm building business travel at Yandex — flights, trains, and hotels for companies, from React down to Go services. Before that, I spent a few years on the best ridehailing platform in the world: two apps that run car, scooter, and charging-station fleets with a tangle of automation under the hood.
 
 Outside work, I organize tech events and share what I learn — from small IT breakfasts to meetups with hundreds of guests. I've also taught at Yandex Summer Schools and spoken at public talks.
 
 ## Work
 
-- [Business Travel • Yandex](https://business.taxi.yandex.ru/) — business trips for companies: flights, trains, and hotels in one place
+- [Business Travel • Yandex](https://business.taxi.yandex.ru/) — business travel for companies
 - [Fleetroom • Yandex](https://fleet.yandex.com) — ride-hailing platform for fleets
 - [Garage • Yandex](https://garage.yandex.ru/) — car rentals from fleets directly to drivers
 
