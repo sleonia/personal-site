@@ -13,9 +13,9 @@ license: All rights reserved
 
 ## About
 
-Hi, I'm Nikita, a software developer with a front-end focus and a curiosity for modern tech and personal efficiency.
+Hi, I'm Nikita, a software developer with a curiosity for modern tech and personal efficiency.
 
-I've worked in big tech, creating tools for data analytics and contributing to a design system used across a dozen teams. Now I'm building business travel at Yandex — flights, trains, and hotels for companies, from React down to Go services. Before that, I spent a few years on the best ridehailing platform in the world: two apps that run car, scooter, and charging-station fleets with a tangle of automation under the hood.
+I've worked in big tech, building tools for data analytics and contributing to a design system used across a dozen teams. Now I'm building business travel at Yandex — flights, trains, and hotels for companies, from the React UI down to Go services. Before that, I spent a few years building the best ride-hailing platform in the world: two apps powering car, scooter, and charging-station fleets, with a tangle of automation under the hood.
 
 Outside work, I organize tech events and share what I learn — from small IT breakfasts to meetups with hundreds of guests. I've also taught at Yandex Summer Schools and spoken at public talks.
 
