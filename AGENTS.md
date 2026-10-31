@@ -16,6 +16,7 @@
 - `npm run build:font`: subset the display font to a WOFF2 (run automatically by `npm run build`).
 - `npm run production`: serve the `build/` folder locally.
 - `npm run upload`: deploy `build/` to Yandex Cloud Storage (requires `.env`). Uploads from `build/` by default; set `UPLOAD_ROOT` to override.
+- Every push to `main` deploys automatically via `.github/workflows/deploy.yml` (build + upload). Credentials come from the `YC_BUCKET`, `YC_ACCESS_KEY_ID` and `YC_SECRET_ACCESS_KEY` repo secrets. Manual re-run: Actions → Deploy → Run workflow.
 - `npm run format`: format project files with Prettier.
 
 ## Coding Style & Naming Conventions
