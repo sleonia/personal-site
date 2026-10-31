@@ -36,4 +36,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://sleonia.tech/sitemap.xml
+Sitemap: https://sleonia.com/sitemap.xml

@@ -1,6 +1,6 @@
 ---
-title: Nikita Dontsov — sleonia.tech
-canonical: https://sleonia.tech/
+title: Nikita Dontsov — sleonia.com
+canonical: https://sleonia.com/
 updated: 2026-10-31
 license: All rights reserved
 ---
