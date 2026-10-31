@@ -23,7 +23,7 @@ Outside work, I organize tech events and share what I learn — from small IT br
 
 - [Business Travel • Yandex](https://business.go.yandex/) — business travel for companies (2026–now)
 - [Fleetroom • Yandex](https://fleet.yandex.com) — ride-hailing platform for fleets (2023–2026)
-- [Garage • Yandex](https://garage.yango.com/) — car rentals from fleets directly to drivers (2023–2026)
+- [Garage • Yango](https://garage.yango.com/) — car rentals from fleets directly to drivers (2023–2026)
 - [SberBank Online • Sber](https://online.sberbank.ru/) — online banking for retail customers (2020–2023)
 
 ## Side Projects
