@@ -27,6 +27,7 @@ Outside work, I organize tech events and share what I learn — from small IT br
 
 ## Side Projects
 
+- [glow-reviews](https://t.me/glow_reviews_bot) — a Telegram bot for skincare shopping: send a photo or the name of a product, and it gathers reviews from Wildberries, Olive Young, YesStyle and other stores into one summary, plus whether it suits your skin profile.
 - [Klaxon](https://github.com/sleonia/klaxon) — unmissable full-screen meeting alerts for macOS. A menu-bar app that throws a can't-miss alert onto every screen before a call starts; one keypress joins.
 - [Hearthstone Sounds for AI Agents](https://github.com/sleonia/ai-harness-hs-sounds) — a notification soundpack that plays memorable sounds from Hearthstone's golden era whenever an AI agent (Claude Code and friends) needs my attention. A Claude Code plugin; macOS only.
 - claw — my personal parser/summarizer: a Telegram bot that ingests RSS, GitHub, and Telegram sources into a shared database and turns them into daily and weekly digests.
