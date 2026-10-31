@@ -1,7 +1,7 @@
 ---
 title: Nikita Dontsov — sleonia.tech
 canonical: https://sleonia.tech/
-updated: 2026-07-11
+updated: 2026-10-31
 license: All rights reserved
 ---
 
@@ -13,19 +13,21 @@ license: All rights reserved
 
 ## About
 
-Hi, I'm Nikita, a software developer with a front-end focus and a curiosity for modern tech and personal efficiency.
+Hi, I'm Nikita, a software developer with a curiosity for modern tech and personal efficiency.
 
-I've worked in big tech, creating tools for data analytics and contributing to a design system used across a dozen teams. Now I'm building the best ridehailing platform in the world — two apps that run car, scooter, and charging-station fleets with a tangle of automation under the hood.
+I've worked in big tech, building tools for data analytics and contributing to a design system used across a dozen teams. Now I'm building business travel at Yandex — flights, trains, and hotels for companies, from the React UI down to Go services. Before that, I spent a few years building the best ride-hailing platform in the world: two apps powering car, scooter, and charging-station fleets, with a tangle of automation under the hood.
 
 Outside work, I organize tech events and share what I learn — from small IT breakfasts to meetups with hundreds of guests. I've also taught at Yandex Summer Schools and spoken at public talks.
 
 ## Work
 
+- [Business Travel • Yandex](https://business.go.yandex/) — business travel for companies
 - [Fleetroom • Yandex](https://fleet.yandex.com) — ride-hailing platform for fleets
-- [Garage • Yandex](https://garage.yandex.ru/) — car rentals from fleets directly to drivers
+- [Garage • Yandex](https://garage.yango.com/) — car rentals from fleets directly to drivers
 
 ## Side Projects
 
+- [glow-reviews](https://t.me/glow_reviews_bot) — a Telegram bot for skincare shopping: send a photo or the name of a product, and it gathers reviews from Wildberries, Olive Young, YesStyle and other stores into one summary, plus whether it suits your skin profile.
 - [Klaxon](https://github.com/sleonia/klaxon) — unmissable full-screen meeting alerts for macOS. A menu-bar app that throws a can't-miss alert onto every screen before a call starts; one keypress joins.
 - [Hearthstone Sounds for AI Agents](https://github.com/sleonia/ai-harness-hs-sounds) — a notification soundpack that plays memorable sounds from Hearthstone's golden era whenever an AI agent (Claude Code and friends) needs my attention. A Claude Code plugin; macOS only.
 - claw — my personal parser/summarizer: a Telegram bot that ingests RSS, GitHub, and Telegram sources into a shared database and turns them into daily and weekly digests.
