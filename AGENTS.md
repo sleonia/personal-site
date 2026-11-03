@@ -15,8 +15,8 @@
 - `npm run build`: regenerate the subset font, then generate a minified production build in `build/`.
 - `npm run build:font`: subset the display font to a WOFF2 (run automatically by `npm run build`).
 - `npm run production`: serve the `build/` folder locally.
-- `npm run upload`: deploy `build/` to Yandex Cloud Storage (requires `.env`). Uploads from `build/` by default; set `UPLOAD_ROOT` to override.
-- Every push to `main` deploys automatically via `.github/workflows/deploy.yml` (build + upload). Credentials come from the `YC_BUCKET`, `YC_ACCESS_KEY_ID` and `YC_SECRET_ACCESS_KEY` repo secrets. Manual re-run: Actions → Deploy → Run workflow.
+- Hosting is Cloudflare Pages (project `personal-site`). Every push to `main` builds and deploys automatically via the Cloudflare GitHub integration: build command `npm install --no-audit --no-fund && npm run build`, output `build`, `NODE_VERSION=22`. Other branches get preview deploys.
+- `npm run upload`: legacy upload of `build/` to Yandex Cloud Storage (requires `.env`). No longer used for production.
 - `npm run format`: format project files with Prettier.
 
 ## Coding Style & Naming Conventions
@@ -39,5 +39,5 @@
 
 ## Security & Configuration Tips
 
-- Deployment uses `.env` for Yandex Cloud credentials; never commit secrets.
-- If changing deploy behavior, verify upload paths and content types in `scripts/upload.mjs`.
+- Never commit secrets (`.env` is only for the legacy Yandex upload script).
+- If changing build output, keep it in `build/`; that's what Cloudflare Pages serves.

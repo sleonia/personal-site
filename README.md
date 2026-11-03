@@ -33,9 +33,13 @@ This will start a local server at `http://localhost:3000` and open it in your br
 
 https://metrika.yandex.ru/overview?id=106338771
 
-#### Deploy to Yandex Cloud Storage
+### Deploy
 
-This project includes an automated upload script for Yandex Cloud Storage (S3-compatible):
+Hosted on Cloudflare Pages: every push to `main` builds (`npm run build` → `build/`) and deploys to https://sleonia.com. Nothing to run manually.
+
+#### Legacy: Yandex Cloud Storage
+
+No longer used for production. This project includes an automated upload script for Yandex Cloud Storage (S3-compatible):
 
 1. **Install dependencies:**
 
