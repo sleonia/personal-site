@@ -346,6 +346,31 @@ picture img {
   border-color: var(--secondary);
 }
 
+.section-resumes {
+  --resume-mint: #82e9b3;
+  --resume-amber: #ffd080;
+  border-color: var(--resume-mint);
+
+  .section-title {
+    margin-block: 0 0.5rem;
+    text-shadow: 0 0 12px
+      color-mix(in srgb, var(--resume-mint) 55%, transparent);
+  }
+
+  .resume-links {
+    margin: 0;
+    text-underline-offset: 0.2em;
+  }
+
+  .resume-link-frontend {
+    color: var(--resume-mint);
+  }
+
+  .resume-link-fullstack {
+    color: var(--resume-amber);
+  }
+}
+
 .section-side-projects {
   border-color: var(--accent);
 }

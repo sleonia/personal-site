@@ -21,8 +21,7 @@ Outside work, I organize tech events and share what I learn — from small IT br
 
 ## Resumes
 
-- [Frontend resume (PDF)](https://sleonia.com/resumes/Nikita_Dontsov_Frontend_2026.pdf)
-- [Fullstack resume (PDF)](https://sleonia.com/resumes/Nikita_Dontsov_Fullstack_2026.pdf)
+[Frontend](https://sleonia.com/resumes/Nikita_Dontsov_Frontend_2026.pdf) | [Fullstack](https://sleonia.com/resumes/Nikita_Dontsov_Fullstack_2026.pdf)
 
 ## Work
 
