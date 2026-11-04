@@ -52,6 +52,7 @@ Outside work, I organize tech events and share what I learn — from small IT br
 
 ## Talks & Articles
 
+- [AI Coding Agents in Practice](https://dev.go.yandex/blog/ai-prompting-in-practice-2026-09-30) — how I use coding agents in real projects, from giving them access to Figma and Playwright to turning issue tracker tasks into pull requests. Published on the Yandex engineering blog in September 2026 (in Russian).
 - [Public frontend coding interview](https://www.youtube.com/watch?v=_ClyL91TaBQ) — a training webinar role-playing a real frontend interview, solving JavaScript tasks live (async, algorithms, core JS).
 - [Exploring React Query](https://m.vk.com/video-17796776_456240926) — how React Query manages server data in React apps: caching, background updates, UI sync (April 2024 talk).
 - [Dive into the Magic of React-Query](https://dev.go.yandex/blog/react-query-magic-2024-04-26) — text version explaining how React Query works under the hood.
