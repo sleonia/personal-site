@@ -157,6 +157,10 @@ async function runBuild() {
     console.log("📦 Copied images");
   }
 
+  // Copy the resume PDFs byte for byte.
+  await copyDir(path.join(srcDir, "resumes"), path.join(buildDir, "resumes"));
+  console.log("📦 Copied resumes");
+
   // Copy /.well-known (security.txt, etc.) verbatim
   const wellKnownSrc = path.join(srcDir, ".well-known");
   if (fs.existsSync(wellKnownSrc)) {

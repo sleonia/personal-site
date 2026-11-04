@@ -1,7 +1,7 @@
 ---
 title: Nikita Dontsov — sleonia.com
 canonical: https://sleonia.com/
-updated: 2026-10-31
+updated: 2026-11-04
 license: All rights reserved
 ---
 
@@ -13,17 +13,30 @@ license: All rights reserved
 
 ## About
 
-Hi, I'm Nikita, a software developer with a curiosity for modern tech and personal efficiency.
+Hi, I'm Nikita, a software developer with 6+ years of experience building products at Yandex and Sberbank.
 
-I've worked in big tech, building tools for data analytics and contributing to a design system used across a dozen teams. Now I'm building business travel at Yandex — flights, trains, and hotels for companies, from the React UI down to Go services. Before that, I spent a few years building the best ride-hailing platform in the world: two apps powering car, scooter, and charging-station fleets, with a tangle of automation under the hood.
+I build corporate travel and event booking at Yandex, working across React interfaces and Go services. Before that, I built tools for fleet operators and vehicle rentals at Yandex Go. At Sberbank, I worked on online banking, product analytics, and the Nova Design System.
 
 Outside work, I organize tech events and share what I learn — from small IT breakfasts to meetups with hundreds of guests. I've also taught at Yandex Summer Schools and spoken at public talks.
 
+## Resumes
+
+- [Frontend resume (PDF)](https://sleonia.com/resumes/Nikita_Dontsov_Frontend_2026.pdf)
+- [Fullstack resume (PDF)](https://sleonia.com/resumes/Nikita_Dontsov_Fullstack_2026.pdf)
+
 ## Work
 
-- [Business Travel • Yandex](https://business.go.yandex/) — business travel for companies (2026–now)
-- [Fleetroom • Yandex](https://fleet.yandex.com) — ride-hailing platform for fleets (2023–2026)
-- [Garage • Yango](https://garage.yango.com/) — car rentals from fleets directly to drivers (2023–2026)
+- [Yandex Business Travel](https://business.go.yandex/travel) (2026–Present) · Corporate travel and event booking
+  - Launched corporate event booking (MICE) for a base of 15k+ business clients. Clients booked 1,200+ events in 3 months through React interfaces backed by Go services that integrated 4 event providers
+  - Built self-service rail refunds and loyalty card management with 6 provider APIs. The refund flow handled 70% of rail refunds and cut related support tickets by 35%
+  - Built an AI travel agent in Go and Python that handled 3k+ requests per day, connected it to internal services over gRPC, and raised task success from 62% to 81% through evaluations and feedback loops
+- [Yandex Go — Fleetroom & Garage](https://go.yandex/) (2023–2026) · Fleet operations and vehicle rental
+  - Launched [Yango Garage](https://garage.yango.com/)’s rental-request flow for a marketplace with 10k daily active drivers and 2k+ fleets across 9 countries
+  - Reduced fleet fraud by integrating antifraud checks into backend workflows in Go and Python
+  - Raised Lighthouse from 56 to 92 by optimizing builds, asset loading and CDN caching
+  - Cut CI build times by 23.6% with shared jobs, pnpm and cache reuse, removing legacy steps
+  - Increased onboarding click-through rate by 37.8% with AI-powered messages
+  - Mentored 17 students through projects and weekly reviews. 12 joined Yandex
 - [SberBank Online • Sber](https://online.sberbank.ru/) — online banking for retail customers (2020–2023)
 
 ## Side Projects
