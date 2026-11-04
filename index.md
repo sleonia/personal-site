@@ -27,8 +27,8 @@ Outside work, I organize tech events and share what I learn — from small IT br
 ## Work
 
 - [Yandex Business Travel](https://business.go.yandex/travel) (2026–Present) · Corporate travel and event booking
-  - Launched corporate event booking (MICE) for a base of 15k+ business clients. Clients booked 1,200+ events in 3 months through React interfaces backed by Go services that integrated 4 event providers
-  - Built self-service rail refunds and loyalty card management with 6 provider APIs. The refund flow handled 70% of rail refunds and cut related support tickets by 35%
+  - Launched corporate event booking (MICE) for a base of 15k+ business clients. Clients booked 1,200+ events in 3 months through organizer and booker interfaces built with React and Redux-Saga, backed by a BFF and Go services that integrated 4 event providers
+  - Moved 70% of rail refunds to self-service and cut related support tickets by 35% by building the refund UI and integrating provider APIs in Go. The work covered 6 provider APIs across refunds and loyalty card management
   - Built an AI travel agent in Go and Python that handled 3k+ requests per day, connected it to internal services over gRPC, and raised task success from 62% to 81% through evaluations and feedback loops
 - [Yandex Go — Fleetroom & Garage](https://go.yandex/) (2023–2026) · Fleet operations and vehicle rental
   - Launched [Yango Garage](https://garage.yango.com/)’s rental-request flow for a marketplace with 10k daily active drivers and 2k+ fleets across 9 countries
@@ -37,7 +37,11 @@ Outside work, I organize tech events and share what I learn — from small IT br
   - Cut CI build times by 23.6% with shared jobs, pnpm and cache reuse, removing legacy steps
   - Increased onboarding click-through rate by 37.8% with AI-powered messages
   - Mentored 17 students through projects and weekly reviews. 12 joined Yandex
-- [SberBank Online • Sber](https://online.sberbank.ru/) — online banking for retail customers (2020–2023)
+- [Sberbank](https://online.sberbank.ru/) (2020–2023) · Frontend development for online banking and product analytics
+  - Enabled weekly funnel, error and cohort reviews by delivering an analytics UI for a platform handling 60M+ events daily
+  - Standardized tooling for 30+ teams with shared ESLint, Webpack, Jest and Storybook configurations
+  - Co-developed Nova Design System for web and mobile apps, adopted by 120+ developers
+  - Supported TypeScript adoption through 4 internal talks and type definitions for 3 libraries
 
 ## Side Projects
 
