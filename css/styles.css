@@ -352,28 +352,22 @@ picture img {
   border-color: var(--resume-mint);
 
   .section-title {
+    margin-block: 0 0.5rem;
     text-shadow: 0 0 12px
       color-mix(in srgb, var(--resume-mint) 55%, transparent);
   }
 
-  .contact-link {
-    color: var(--resume-link-color);
-    background: color-mix(in srgb, currentColor 5%, transparent);
-  }
-
-  .contact-link:hover,
-  .contact-link:focus {
-    color: var(--resume-link-color);
-    background: color-mix(in srgb, currentColor 16%, transparent);
-    text-shadow: 0 0 8px color-mix(in srgb, currentColor 30%, transparent);
+  .resume-links {
+    margin: 0;
+    text-underline-offset: 0.2em;
   }
 
   .resume-link-frontend {
-    --resume-link-color: var(--resume-mint);
+    color: var(--resume-mint);
   }
 
   .resume-link-fullstack {
-    --resume-link-color: var(--resume-amber);
+    color: var(--resume-amber);
   }
 }
 
